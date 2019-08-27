@@ -1,0 +1,112 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--<item name="android:background">@color/Transparente</item>-->
+        <!--<item name="android:windowDisablePreview">true</item>-->
+    </style>
+
+    <style name="AppTheme.NoAnimacion">
+        <item name="android:windowBackground">@color/colorPrimary</item>
+    </style>
+
+    <style name="Noticias" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/Transparente</item>
+
+    </style>
+
+    <style name="AppTheme.Menu">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowBackground">@color/Transparente</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <!--<item name="android:windowAnimationStyle">@style/AppTheme.Animacion_Menu</item>-->
+        <item name="colorAccent">@color/colorPrimary</item>
+
+    </style>
+
+    <style name="AppTheme.Animacion_Menu">
+        <item name="android:windowEnterAnimation">@anim/anim_abrir_menu</item>
+        <item name="android:windowExitAnimation">@anim/anim_cerrar_menu</item>
+        <item name="android:windowExitTransition" tools:ignore="NewApi">@anim/anim_cerrar_menu</item>
+    </style>
+
+    <style name="DialogoReloj" parent="Theme.AppCompat.Light.Dialog.MinWidth">
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="DialogoRelojTransparente">
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowTitleStyle">@style/Dialogo_Reloj_Titulo</item>
+        <item name="android:windowBackground">@color/Transparente</item>
+    </style>
+
+    <style name="DialogoProgresivo">
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:windowTitleStyle">@style/Dialogo_Titulo</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/Transparente</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
+    <style name="DialogoEleccion" parent="Theme.AppCompat.Light.Dialog.MinWidth">
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:windowTitleStyle">@style/Dialogo_Titulo</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/Blanco</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="DialogoEleccion_Transparente">
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:windowTitleStyle">@style/Dialogo_Titulo</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/Transparente</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="Dialogo_Titulo">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Dialogo_Reloj_Titulo">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="Splash" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+        <item name="colorPrimaryDark">@color/Azul0Miedo</item>
+    </style>
+
+    <style name="Inicio_Sesion" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimaryDark">@color/ic_notificacion_background_iniciosesion</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+</resources>

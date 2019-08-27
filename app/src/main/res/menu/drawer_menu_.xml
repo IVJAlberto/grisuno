@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <!--mantiene selección de item en single-->
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_ubicacion"
+            android:icon="@drawable/ic_ubicacion_foreground"
+            android:title="Ubicación" />
+        <item
+            android:id="@+id/nav_r_datos"
+            android:icon="@drawable/ic_refrescar_foreground"
+            android:title="Refrescar Datos" />
+        <item
+            android:id="@+id/nav_avisos"
+            android:icon="@drawable/ic_avisos_foreground"
+            android:title="Avisos" />
+        <item
+            android:id="@+id/nav_salir"
+            android:icon="@drawable/ic_salir_foreground"
+            android:title="Salir" />
+    </group>
+
+    <item android:title="Información">
+        <menu>
+            <item
+                android:id="@+id/nav_privacidad"
+                android:icon="@drawable/ic_candado_foreground"
+                android:title="Privacidad" />
+            <item
+                android:id="@+id/nav_librerias"
+                android:icon="@drawable/ic_librerias_foreground"
+                android:title="Librerías" />
+            <item
+                android:id="@+id/nav_version"
+                android:icon="@drawable/ic_version_foreground"
+                android:title="@string/version" />
+        </menu>
+    </item>
+
+</menu>
