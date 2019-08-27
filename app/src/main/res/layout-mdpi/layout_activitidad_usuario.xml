@@ -28,7 +28,7 @@
                     android:id="@+id/toolbar_maker"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    android:background="@color/colorPrimary"
+                    android:background="@android:color/white"
                     android:baselineAligned="false"
                     android:elevation="5dp"
                     android:gravity="start"
@@ -50,14 +50,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="7.2"
-                        android:text="COMBIZONA"
                         android:fontFamily="@font/lemonmilkbold"
                         android:gravity="center"
+                        android:text="COMBIZONA"
+                        android:textColor="@color/Negro"
                         android:textSize="25dp"
                         android:textStyle="bold"
-                        android:textColor="@color/Blanco"
 
-                    />
+                        />
 
                     <ImageView
                         android:id="@+id/imageView"
@@ -65,21 +65,29 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.4"
                         android:contentDescription="Imagen de Combizona OroVerde"
-                        app:srcCompat="@mipmap/ic_launcher_foreground" />
+                        app:srcCompat="@mipmap/ic_launcher_round" />
 
                 </LinearLayout>
 
                 <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/GrisClaro">
+                    >
 
                     <LinearLayout
                         android:id="@+id/ll_ContenidoRuta"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
+                        android:background="@android:color/white"
                         android:padding="8dp">
+
+                        <!--<LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="@color/colorAccent"
+                            android:layout_marginBottom="20dp"
+                        />-->
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -131,7 +139,7 @@
                                         android:layout_height="match_parent"
                                         android:background="?attr/selectableItemBackgroundBorderless"
                                         android:contentDescription="Imagen flecha unidad."
-                                        app:srcCompat="@drawable/ic_expand_more" />
+                                        app:srcCompat="@drawable/ic_expand_more_white" />
                                 </LinearLayout>
 
 
@@ -229,7 +237,7 @@
                                         android:layout_height="match_parent"
                                         android:background="?attr/selectableItemBackgroundBorderless"
                                         android:contentDescription="Imagen flecha origen-destino."
-                                        app:srcCompat="@drawable/ic_expand_more" />
+                                        app:srcCompat="@drawable/ic_expand_more_white" />
                                 </LinearLayout>
 
                                 <Spinner
@@ -273,7 +281,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:background="@drawable/estilo_elemento_tabla"
+                                    android:background="@drawable/estilo_oscuro_elemento_tabla"
                                     android:baselineAligned="false"
                                     android:gravity="center_vertical|center_horizontal|center"
                                     android:textColor="#212121"
@@ -284,7 +292,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.75"
-                                    android:background="@drawable/estilo_elemento_tabla"
+                                    android:background="@drawable/estilo_oscuro_elemento_tabla"
                                     android:gravity="center_vertical|center_horizontal|center"
                                     android:textColor="#212121"
                                     android:textSize="18sp" />
@@ -294,7 +302,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1.75"
-                                    android:background="@drawable/estilo_toprighttabla"
+                                    android:background="@drawable/estilo_oscuro_elemento_tabla"
                                     android:gravity="center_vertical|center_horizontal|center"
                                     android:textSize="20sp" />
 
@@ -360,7 +368,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="4.5"
-                                    android:background="@drawable/estilo_elemento_tabla"
+                                    android:background="@drawable/estilo_oscuro_elemento_tabla"
                                     android:gravity="left|center_vertical"
                                     android:paddingLeft="4dp"
                                     android:textColor="#212121"
@@ -371,7 +379,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:background="@drawable/estilo_elemento_tabla"
+                                    android:background="@drawable/estilo_oscuro_elemento_tabla"
                                     android:baselineAligned="false"
                                     android:gravity="center_vertical|center_horizontal|center"
                                     android:textColor="#212121"
@@ -382,7 +390,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.75"
-                                    android:background="@drawable/estilo_elemento_tabla"
+                                    android:background="@drawable/estilo_oscuro_elemento_tabla"
                                     android:gravity="center_vertical|center_horizontal|center"
                                     android:textColor="#212121"
                                     android:textSize="18sp" />
@@ -392,7 +400,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1.75"
-                                    android:background="@drawable/estilo_elemento_tabla"
+                                    android:background="@drawable/estilo_oscuro_elemento_tabla"
                                     android:gravity="center_vertical|center_horizontal|center"
                                     android:textSize="20sp" />
 
@@ -458,7 +466,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="4.5"
-                                    android:background="@drawable/estilo_elemento_tabla"
+                                    android:background="@drawable/estilo_oscuro_elemento_tabla"
                                     android:gravity="left|center_vertical"
                                     android:paddingLeft="4dp"
                                     android:textColor="#212121"
@@ -469,7 +477,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:background="@drawable/estilo_elemento_tabla"
+                                    android:background="@drawable/estilo_oscuro_elemento_tabla"
                                     android:baselineAligned="false"
                                     android:gravity="center_vertical|center_horizontal|center"
                                     android:textColor="#212121"
@@ -480,7 +488,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.75"
-                                    android:background="@drawable/estilo_elemento_tabla"
+                                    android:background="@drawable/estilo_oscuro_elemento_tabla"
                                     android:gravity="center_vertical|center_horizontal|center"
                                     android:textColor="#212121"
                                     android:textSize="18sp" />
@@ -490,7 +498,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1.75"
-                                    android:background="@drawable/estilo_elemento_tabla"
+                                    android:background="@drawable/estilo_oscuro_elemento_tabla"
                                     android:gravity="center_vertical|center_horizontal|center"
                                     android:textSize="20sp" />
 
@@ -556,7 +564,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="4.5"
-                                    android:background="@drawable/estilo_elemento_tabla"
+                                    android:background="@drawable/estilo_oscuro_elemento_tabla"
                                     android:gravity="left|center_vertical"
                                     android:paddingLeft="4dp"
                                     android:textColor="#212121"
@@ -567,7 +575,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:background="@drawable/estilo_elemento_tabla"
+                                    android:background="@drawable/estilo_oscuro_elemento_tabla"
                                     android:baselineAligned="false"
                                     android:gravity="center_vertical|center_horizontal|center"
                                     android:textColor="#212121"
@@ -578,7 +586,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.75"
-                                    android:background="@drawable/estilo_elemento_tabla"
+                                    android:background="@drawable/estilo_oscuro_elemento_tabla"
                                     android:gravity="center_vertical|center_horizontal|center"
                                     android:textColor="#212121"
                                     android:textSize="18sp" />
@@ -588,7 +596,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1.75"
-                                    android:background="@drawable/estilo_elemento_tabla"
+                                    android:background="@drawable/estilo_oscuro_elemento_tabla"
                                     android:gravity="center_vertical|center_horizontal|center"
                                     android:textSize="20sp" />
 
@@ -878,7 +886,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1.5"
-                                android:background="@drawable/estilo_sporigen"
+                                android:background="@drawable/estilo_unidad_siguiendo"
                                 android:gravity="center_vertical|center_horizontal|center"
                                 android:textColor="#212121"
                                 android:textSize="18sp"
@@ -889,7 +897,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1.5"
-                                android:background="@drawable/estilo_spdestino"
+                                android:background="@drawable/estilo_tiempo_siguiendo"
                                 android:baselineAligned="false"
                                 android:gravity="center_vertical|center_horizontal|center"
                                 android:textColor="#212121"
@@ -959,7 +967,7 @@
                                 android:background="?attr/selectableItemBackgroundBorderless"
                                 android:clickable="true"
                                 android:foreground="?android:attr/selectableItemBackground"
-                                app:cardBackgroundColor="@color/colorPrimary"
+                                app:cardBackgroundColor="@color/Rojo"
                                 app:cardCornerRadius="10dp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
@@ -1029,7 +1037,7 @@
             android:fitsSystemWindows="true"
             app:headerLayout="@layout/nav_header_menu"
             app:menu="@menu/drawer_menu_"
-            android:background="@color/GrisClaro"/>
+            android:background="@color/colorPrimary"/>
     </androidx.drawerlayout.widget.DrawerLayout>
 
 </RelativeLayout>

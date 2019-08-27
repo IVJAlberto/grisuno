@@ -38,10 +38,10 @@
     </style>
 
     <style name="DialogoReloj" parent="Theme.AppCompat.Light.Dialog.MinWidth">
-        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorPrimaryDark</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorAccent</item>
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
@@ -58,10 +58,10 @@
     </style>
 
     <style name="DialogoProgresivo">
-        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorPrimaryDark</item>
         <item name="colorPrimary">@color/colorAccent</item>
         <item name="colorPrimaryDark">@color/colorAccent</item>
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:windowTitleStyle">@style/Dialogo_Titulo</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@color/Transparente</item>
@@ -70,10 +70,10 @@
     </style>
 
     <style name="DialogoEleccion" parent="Theme.AppCompat.Light.Dialog.MinWidth">
-        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorPrimaryDark</item>
         <item name="colorPrimary">@color/colorAccent</item>
         <item name="colorPrimaryDark">@color/colorAccent</item>
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:windowTitleStyle">@style/Dialogo_Titulo</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@color/Blanco</item>
@@ -105,7 +105,7 @@
     </style>
 
     <style name="Inicio_Sesion" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="colorPrimaryDark">@color/ic_notificacion_background_iniciosesion</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 

@@ -145,7 +145,6 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
     FirebaseFirestore ff_BaseDatos;
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReference();
-    StorageReference pathRef;
 
     //------HANDLERS------//
     Handler ha_Destino = new Handler();
@@ -173,26 +172,16 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
     String TAG = "Usuario_Recorrido";
 
     //------RUTA------//
-    int[] Tiempos_OSo_DT = {6,15,18,30,45,55,62,70};
-    int[] Tiempos_OSo_DE = {6,15,18,30,45,55,62,72};
-    int[] Tiempos_OSa_DT = {10,19,22,34,49,59,66,74};
-    int[] Tiempos_OSa_DE = {10,19,22,34,49,59,66,76};
-    int[] Tiempos_OT_DSo = {8, 15, 23, 38, 50, 60, 66, 70};
-    int[] Tiempos_OT_DSa = {8, 15, 23, 38, 50, 60, 66, 75};
-    int[] Tiempos_OE_DSo = {8, 15, 23, 38, 50, 60, 66, 70};
-    int[] Tiempos_OE_DSa = {8, 15, 23, 38, 50, 60, 66, 75};
+    int[] Tiempos_CS = {6, 16, 32, 38, 43, 57, 62, 69};
+    int[] Tiempos_CN = {7, 12, 26, 31, 37, 53, 63, 69};
 
     String unidad, origen, destino, str_HoraI, s_unidad_Activa;
-    String[] Unidad = {"UNIDAD", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32",
-            "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65","66","67","68", "69"};
-    String[] Origen = {"ORIGEN", "Soledad", "Satélite", "Trincheras", "Encinos"};
+    String[] Unidad = {"UNIDAD", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+    String[] Origen = {"ORIGEN", "C. Norte", "C. Sur"};
     String[] DestinoInicial = {"DESTINO","",""};
-    String[] Destino = {"DESTINO", "Soledad", "Satélite"};
-    String[] Destino2 = {"DESTINO", "Trincheras", "Encinos"};
-    String[] Paradas_D_T = {"Educadores","Tecnológico", "Lomas","Bosque","Ocampo","Lágrima","Santa Cecilia"};
-    String[] Paradas_D_E = {"Educadores","Tecnológico", "Lomas","Bosque","Ocampo","Lágrima","Santa Cecilia"};
-    String[] Paradas_O_T = {"Santa Cecilia","Lágrima","Ocampo","Bosque","Lomas","Sec. 65","Educadores"};
-    String[] Paradas_O_E = {"Santa Cecilia","Lágrima","Ocampo","Bosque","Lomas","Sec. 65","Educadores"};
+    String[] Destino = {"DESTINO", "Base"};
+    String[] Paradas_O_N = {"Sal Pátzcuaro","Paloma","Sal Mil Cumbres","Sal Charo","Tecnológico","Estadio Morelos","Sal Quiroga"};
+    String[] Paradas_O_S = {"Sal Quiroga","Estadio Morelos","Tecnológico","Sal Charo","Sal Mil Cumbres","Paloma","Sal Pátzcuaro"};
 
     //------SERVICIO------//
     public Intent intentoServicio = new Intent();
@@ -369,34 +358,17 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
         else
             spUnidad.setSelection(0);
 
-        if (origen.equals("Soledad")) {
-            spDestino.setAdapter(new ArrayAdapter<String>(this, R.layout.layout_diseno_spinner, Destino2));
-            spOrigen.setSelection(1);
-        } else if (origen.equals("Satélite")) {
-            spDestino.setAdapter(new ArrayAdapter<String>(this, R.layout.layout_diseno_spinner, Destino2));
-            spOrigen.setSelection(2);
-        } else if (origen.equals("Trincheras")) {
-            spDestino.setAdapter(new ArrayAdapter<String>(this, R.layout.layout_diseno_spinner, Destino));
-            spOrigen.setSelection(3);
-        } else if (origen.equals("Encinos")) {
-            spDestino.setAdapter(new ArrayAdapter<String>(this, R.layout.layout_diseno_spinner, Destino));
-            spOrigen.setSelection(4);
-        }
+        if (!origen.equals("ORIGEN"))
+            if (origen.equals("C. Norte"))
+                spOrigen.setSelection(1);
+            else
+                spOrigen.setSelection(2);
+        else
+            spOrigen.setSelection(0);
 
-        switch (destino){
-            case "Soledad":
-                spDestino.setSelection(1);
-                break;
-            case "Satélite":
-                spDestino.setSelection(2);
-                break;
-            case "Trincheras":
-                spDestino.setSelection(1);
-                break;
-            case "Encinos":
-                spDestino.setSelection(2);
-                break;
-        }
+        spDestino.setAdapter(new ArrayAdapter<String>(this, R.layout.layout_diseno_spinner, Destino));
+        spDestino.setSelection(1);
+
         s_Hora = f_AgregarDecena(picker_Hora);
         s_Minuto = f_AgregarDecena(picker_Minutos);
         str_HoraI = s_Hora + ":" + s_Minuto;
@@ -474,9 +446,9 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
             tvPDDT.setText(preferencias_Variables.getString("diftD",""));
             tv_CancelarRuta.setText(preferencias_Variables.getString("btn_Cancelar", "Cancelar"));
             if(cv_CancelarRuta.isEnabled())
-                cv_CancelarRuta.setCardBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                cv_CancelarRuta.setCardBackgroundColor(getResources().getColor(R.color.Rojo));
             else
-                cv_CancelarRuta.setCardBackgroundColor(getResources().getColor(R.color.colorAccent));
+                cv_CancelarRuta.setCardBackgroundColor(getResources().getColor(R.color.colorPrimary));
 
             if (tvTiempoDestino.getText().toString() != ""){
                 tv_PrepararRuta.setText("Ruta Finalizada");
@@ -503,7 +475,7 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
 
             if(!tv_PrepararRuta.getText().toString().equals("Iniciar Ruta")){
                 cv_PrepararRuta.setEnabled(false);
-                cv_PrepararRuta.setCardBackgroundColor(getResources().getColor(R.color.colorAccent));
+                cv_PrepararRuta.setCardBackgroundColor(getResources().getColor(R.color.colorPrimary));
 
                 if (!tv_PrepararRuta.getText().toString().equals("Ruta Finalizada")){
                     boolean bool_Servicio = constantes.servicioActivo(getApplicationContext());
@@ -516,7 +488,7 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
                 }
             }else{
                 cv_PrepararRuta.setEnabled(true);
-                cv_PrepararRuta.setCardBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                cv_PrepararRuta.setCardBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
             }
         }
     }
@@ -681,7 +653,7 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
             datones_Unidad.put("Activo", true);
             datones_Unidad.put("Conductor", usuario_activo);
 
-            ff_BaseDatos.collection("unidades").document(unidad).set(datones_Unidad, SetOptions.merge());
+            ff_BaseDatos.collection("pruebas").document("r_gris").collection("unidades").document(unidad).set(datones_Unidad, SetOptions.merge());
 
             editor_Variables.putString("llave_TR", llave_TR);
             editor_Variables.putString("nombreArchivo", nombreRecorrido);
@@ -870,16 +842,16 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
         @Override
         protected void onPostExecute(String s) {
             if(c_Suma == 1){
-                ff_BaseDatos.collection("registros").add(datones_Registro).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                ff_BaseDatos.collection("pruebas").document("r_gris").collection("registros").add(datones_Registro).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         if(llave_TR!="" && llave_TR!=null){
-                            ff_BaseDatos.collection("registros_TR").document(llave_TR)
+                            ff_BaseDatos.collection("pruebas").document("r_gris").collection("registros_TR").document(llave_TR)
                                     .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                                 @Override
                                 public void onSuccess(DocumentSnapshot documento) {
                                     if(documento.exists()){
-                                        ff_BaseDatos.collection("registros_TR").document(llave_TR).delete();
+                                        ff_BaseDatos.collection("pruebas").document("r_gris").collection("registros_TR").document(llave_TR).delete();
                                         llave_TR = "";
                                         editor_Variables.putString("llave_TR", llave_TR);
                                         editor_Variables.commit();
@@ -1041,9 +1013,9 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
         timePickerDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Aceptar",timePickerDialog);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-            timePickerDialog.setIcon(R.mipmap.ic_launcher_foreground);
+            timePickerDialog.setIcon(R.mipmap.ic_launcher_round);
         else
-            timePickerDialog.setIcon(R.mipmap.ic_launcher_foreground);
+            timePickerDialog.setIcon(R.mipmap.ic_launcher_round);
         if(!((Usuario_Recorrido.this).isFinishing()))
             timePickerDialog.show();
     }
@@ -1191,7 +1163,7 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
                             datones_Unidad.put("Activo", false);
                             datones_Unidad.put("Conductor", "");
                             datones_Unidad.put("ID_Vuelta", "");
-                            ff_BaseDatos.collection("unidades").document(unidad).set(datones_Unidad, SetOptions.merge());
+                            ff_BaseDatos.collection("pruebas").document("r_gris").collection("unidades").document(unidad).set(datones_Unidad, SetOptions.merge());
                         }
 
                         if (!tv_PrepararRuta.getText().toString().equals("Iniciar Ruta")){
@@ -1267,7 +1239,7 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
                             stopService(intentoServicio);
                         c_CreacionRecorrido = 0;
 
-                        DocumentReference ref_Unidad = ff_BaseDatos.collection("unidades").document(unidad);
+                        DocumentReference ref_Unidad = ff_BaseDatos.collection("pruebas").document("r_gris").collection("unidades").document(unidad);
                         ref_Unidad.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                             @Override
                             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -1276,34 +1248,17 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
                                     if (documento.getBoolean("Activo") == false) {
                                         tv_PrepararRuta.setText("Iniciar Ruta");
                                         cv_CancelarRuta.setEnabled(true);
-                                        cv_CancelarRuta.setCardBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                                        cv_CancelarRuta.setCardBackgroundColor(getResources().getColor(R.color.Rojo));
                                         inicioNormal = false;
                                         s_unidad_Activa = "false";
                                         origen = spOrigen.getSelectedItem().toString();
                                         destino = spDestino.getSelectedItem().toString();
 
+                                        if (origen.equals("C. Norte"))
+                                                f_Asignar_TextView(Paradas_O_N, Tiempos_CN);
+                                        else if (origen.equals("C. Sur"))
+                                                f_Asignar_TextView(Paradas_O_S, Tiempos_CS);
 
-                                        if (origen.equals("Trincheras")){
-                                            if (destino.equals("Soledad"))
-                                                f_Asignar_TextView(Paradas_O_T, Tiempos_OT_DSo);
-                                            else
-                                                f_Asignar_TextView(Paradas_O_T, Tiempos_OT_DSa);
-                                        }else if (origen.equals("Encinos")){
-                                            if (destino.equals("Soledad"))
-                                                f_Asignar_TextView(Paradas_O_E, Tiempos_OE_DSo);
-                                            else
-                                                f_Asignar_TextView(Paradas_O_E, Tiempos_OE_DSa);
-                                        }else if (destino.equals("Trincheras")){
-                                            if (origen.equals("Soledad"))
-                                                f_Asignar_TextView(Paradas_D_T, Tiempos_OSo_DT);
-                                            else
-                                                f_Asignar_TextView(Paradas_D_T, Tiempos_OSa_DT);
-                                        }else{
-                                            if (origen.equals("Soledad"))
-                                                f_Asignar_TextView(Paradas_D_E, Tiempos_OSo_DE);
-                                            else
-                                                f_Asignar_TextView(Paradas_D_E, Tiempos_OSa_DE);
-                                        }
 
                                         int ano = Calendar.getInstance().get(Calendar.YEAR);
                                         tvDestino.setText(destino);
@@ -1373,8 +1328,8 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
                             public void run() {
                                 if(hayInternet){
                                     c_Suma = 0;
-                                    cv_PrepararRuta.setCardBackgroundColor(getResources().getColor(R.color.colorAccent));
-                                    cv_CancelarRuta.setCardBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                                    cv_PrepararRuta.setCardBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                                    cv_CancelarRuta.setCardBackgroundColor(getResources().getColor(R.color.Rojo));
 
                                     Map<String, Object> datones_Registro_TR = new HashMap<>();
                                     datones_Registro_TR.put("f", fecha);
@@ -1399,7 +1354,7 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
                                     datones_Registro_TR.put("d6", "0");
                                     datones_Registro_TR.put("d7", "0");
                                     datones_Registro_TR.put("dD", "0");
-                                    ff_BaseDatos.collection("registros_TR").add(datones_Registro_TR).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                    ff_BaseDatos.collection("pruebas").document("r_gris").collection("registros_TR").add(datones_Registro_TR).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                         @Override
                                         public void onSuccess(DocumentReference documentReference) {
                                             if(c_CreacionRecorrido==0)
@@ -1746,7 +1701,7 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
                     dialogo.dismiss();
                     Map<String, Object> datones_Usuario = new HashMap<>();
                     datones_Usuario.put("PP", true);
-                    ff_BaseDatos.collection("usuarios").document(uid).set(datones_Usuario, SetOptions.merge());
+                    ff_BaseDatos.collection("pruebas").document("r_gris").collection("usuarios").document(uid).set(datones_Usuario, SetOptions.merge());
                     editor_Variables.putBoolean("pp",true);
                     editor_Variables.commit();
                 }
@@ -1857,7 +1812,7 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
         datones_Usuario.put("VersionAPK", preferencias_Variables.getString("versionAPK",""));
         datones_Usuario.put("VersionAPI", versionAPI);
         datones_Usuario.put("Modelo_Celular", brand + " - " + model);
-        ff_BaseDatos.collection("usuarios").document(uid).set(datones_Usuario, SetOptions.merge());
+        ff_BaseDatos.collection("pruebas").document("r_gris").collection("usuarios").document(uid).set(datones_Usuario, SetOptions.merge());
 //        try {
 //            String dos = caminoCache + sImagen;
 //            File file = new File(dos);
@@ -1908,20 +1863,12 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
         if (esLimpia){
             origen = destino;
             switch (destino){
-                case "Soledad":
-                    spOrigen.setSelection(1);
-                    spDestino.setAdapter(new ArrayAdapter<String>(this, R.layout.layout_diseno_spinner, Destino2));
-                    break;
-                case "Satélite":
+                case "C. Norte":
                     spOrigen.setSelection(2);
-                    spDestino.setAdapter(new ArrayAdapter<String>(this, R.layout.layout_diseno_spinner, Destino2));
-                    break;
-                case "Trincheras":
-                    spOrigen.setSelection(3);
                     spDestino.setAdapter(new ArrayAdapter<String>(this, R.layout.layout_diseno_spinner, Destino));
                     break;
-                case "Encinos":
-                    spOrigen.setSelection(4);
+                case "C. Sur":
+                    spOrigen.setSelection(1);
                     spDestino.setAdapter(new ArrayAdapter<String>(this, R.layout.layout_diseno_spinner, Destino));
                     break;
                 default:
@@ -1934,7 +1881,7 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
                 datones_Unidad.put("Activo", false);
                 datones_Unidad.put("Conductor", "");
                 datones_Unidad.put("ID_Vuelta", "");
-                ff_BaseDatos.collection("unidades").document(unidad).set(datones_Unidad, SetOptions.merge());
+                ff_BaseDatos.collection("pruebas").document("r_gris").collection("unidades").document(unidad).set(datones_Unidad, SetOptions.merge());
             }
             final String nombreArchivo = preferencias_Variables.getString("nombreArchivo","");
             DateFormat formatoCancelar = new SimpleDateFormat("HH:mm:ss");
@@ -1969,7 +1916,7 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
                 ha_Destino.removeCallbacks(act_Destino);
                 Map<String, Object> datones_Usuario = new HashMap<>();
                 datones_Usuario.put("Activo", false);
-                ff_BaseDatos.collection("usuarios").document(uid).set(datones_Usuario, SetOptions.merge());
+                ff_BaseDatos.collection("pruebas").document("r_gris").collection("usuarios").document(uid).set(datones_Usuario, SetOptions.merge());
                 primeraVez = true;
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -2008,8 +1955,8 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
                 btn_SHora.setText("Hora");
                 btn_SHora.setEnabled(true);
 
-                cv_PrepararRuta.setCardBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                cv_CancelarRuta.setCardBackgroundColor(getResources().getColor(R.color.colorAccent));
+                cv_PrepararRuta.setCardBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                cv_CancelarRuta.setCardBackgroundColor(getResources().getColor(R.color.Rojo));
 
                 spDestino.setSelection(0);
                 tvParada1.setText("");
@@ -2346,31 +2293,31 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
         LayoutInflater inflador = getLayoutInflater();
         View layout = inflador.inflate(R.layout.layout_diseno_toast, (ViewGroup) findViewById(R.id.toast_layout));
         ImageView imagen = (ImageView) layout.findViewById(R.id.toast_image);
-        switch (nombreImagen) {
-            case "error":
-                imagen.setImageResource(R.drawable.ic_error);
-                break;
-            case "gps":
-                imagen.setImageResource(R.drawable.ic_gps);
-                break;
-            case "user":
-                imagen.setImageResource(R.drawable.ic_usuario);
-                break;
-            case "combi":
-                imagen.setImageResource(R.drawable.ic_combi);
-                break;
-            case "activo":
-                imagen.setImageResource(R.drawable.ic_activo);
-                break;
-            case "actualizado":
-                imagen.setImageResource(R.drawable.ic_actualizado);
-                break;
-            case "descargar":
-                imagen.setImageResource(R.drawable.ic_descargar);
-                break;
-            default:
-                break;
-        }
+//        switch (nombreImagen) {
+//            case "error":
+//                imagen.setImageResource(R.drawable.ic_error);
+//                break;
+//            case "gps":
+//                imagen.setImageResource(R.drawable.ic_gps);
+//                break;
+//            case "user":
+//                imagen.setImageResource(R.drawable.ic_usuario);
+//                break;
+//            case "combi":
+//                imagen.setImageResource(R.drawable.ic_combi);
+//                break;
+//            case "activo":
+//                imagen.setImageResource(R.drawable.ic_activo);
+//                break;
+//            case "actualizado":
+//                imagen.setImageResource(R.drawable.ic_actualizado);
+//                break;
+//            case "descargar":
+//                imagen.setImageResource(R.drawable.ic_descargar);
+//                break;
+//            default:
+//                break;
+//        }
 
         TextView texto = (TextView) layout.findViewById(R.id.toast_text);
         texto.setText(mensaje);
@@ -2492,7 +2439,7 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
         }
     }
     private void f_Obtener_Recorrido(String id_Recorrido){
-        ff_BaseDatos.collection("registros_TR").document(id_Recorrido).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+        ff_BaseDatos.collection("pruebas").document("r_gris").collection("registros_TR").document(id_Recorrido).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documento) {
                 if (documento.exists()){
@@ -2512,18 +2459,12 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
                     btn_SHora.setText(str_HoraI);
                     spUnidad.setSelection(u);
 
-                    if (o.equals("Soledad")) {
-                        spDestino.setAdapter(new ArrayAdapter<String>(Usuario_Recorrido.this, R.layout.layout_diseno_spinner, Destino2));
+                    if (o.equals("C. Norte")) {
+                        spDestino.setAdapter(new ArrayAdapter<String>(Usuario_Recorrido.this, R.layout.layout_diseno_spinner, Destino));
                         spOrigen.setSelection(1);
-                    } else if (o.equals("Satélite")) {
-                        spDestino.setAdapter(new ArrayAdapter<String>(Usuario_Recorrido.this, R.layout.layout_diseno_spinner, Destino2));
+                    } else if (o.equals("C. Sur")) {
+                        spDestino.setAdapter(new ArrayAdapter<String>(Usuario_Recorrido.this, R.layout.layout_diseno_spinner, Destino));
                         spOrigen.setSelection(2);
-                    } else if (o.equals("Trincheras")) {
-                        spDestino.setAdapter(new ArrayAdapter<String>(Usuario_Recorrido.this, R.layout.layout_diseno_spinner, Destino));
-                        spOrigen.setSelection(3);
-                    } else if (o.equals("Encinos")) {
-                        spDestino.setAdapter(new ArrayAdapter<String>(Usuario_Recorrido.this, R.layout.layout_diseno_spinner, Destino));
-                        spOrigen.setSelection(4);
                     }
 
                     new Handler().postDelayed(new Runnable() {
@@ -2582,37 +2523,10 @@ public class Usuario_Recorrido extends AppCompatActivity implements NavigationVi
             spOrigen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    if (parent.getItemAtPosition(position).toString().equals("Soledad") || parent.getItemAtPosition(position).toString().equals("Satélite")) {
-                        spDestino.setAdapter(new ArrayAdapter<String>(Usuario_Recorrido.this, R.layout.layout_diseno_spinner, Destino2));
-                        switch (destino){
-                            case "Trincheras":
-                                spDestino.setSelection(1);
-                                break;
-                            case "Encinos":
-                                spDestino.setSelection(2);
-                                break;
-                            default:
-                                spDestino.setSelection(0);
-                                break;
-                        }
-                        ha_Destino.postDelayed(act_Destino, 1000);
-                    } else if (parent.getItemAtPosition(position).toString().equals("Trincheras") || parent.getItemAtPosition(position).toString().equals("Encinos")) {
-                        spDestino.setAdapter(new ArrayAdapter<String>(Usuario_Recorrido.this, R.layout.layout_diseno_spinner, Destino));
-                        switch (destino){
-                            case "Soledad":
-                                spDestino.setSelection(1);
-                                break;
-                            case "Satélite":
-                                spDestino.setSelection(2);
-                                break;
-                            default:
-                                spDestino.setSelection(0);
-                                break;
-                        }
-                        ha_Destino.postDelayed(act_Destino, 1000);
-                    }
+                    spDestino.setAdapter(new ArrayAdapter<String>(Usuario_Recorrido.this, R.layout.layout_diseno_spinner, Destino));
+                    spDestino.setSelection(1);
+                    ha_Destino.postDelayed(act_Destino, 1000);
                 }
-
                 @Override
                 public void onNothingSelected(AdapterView<?> parent) {
 

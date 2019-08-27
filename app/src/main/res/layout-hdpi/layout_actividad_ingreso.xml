@@ -17,7 +17,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/fondo_inicio"
+            android:background="@color/colorPrimaryDark"
             android:orientation="vertical"
             android:weightSum="1">
 
@@ -65,13 +65,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:fontFamily="@font/lemonmilkbold"
                             android:gravity="center_horizontal"
                             android:paddingRight="4dp"
                             android:text="COMBIZONA"
                             android:textAlignment="center"
                             android:textColor="@android:color/white"
                             android:textSize="40sp"
-                            android:fontFamily="@font/lemonmilkbold"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -128,7 +128,7 @@
                             android:lines="1"
                             android:paddingLeft="8dp"
                             android:paddingRight="8dp"
-                            android:textColor="@android:color/white"
+                            android:textColor="@color/colorPrimaryDark"
                             android:textColorHint="?android:attr/textColorHintInverse"
                             android:textSize="18sp" />
 
@@ -162,14 +162,14 @@
                             android:layout_height="match_parent"
                             android:layout_weight="8"
                             android:background="@android:color/transparent"
-                            android:hint="Contraseña"
                             android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
+                            android:hint="Contraseña"
                             android:imeOptions="actionDone"
                             android:inputType="text|textPassword"
                             android:lines="1"
                             android:paddingLeft="8dp"
                             android:paddingRight="8dp"
-                            android:textColor="@android:color/white"
+                            android:textColor="@color/colorPrimaryDark"
                             android:textColorHint="?android:attr/textColorHintInverse"
                             android:textSize="18sp" />
 
@@ -180,8 +180,8 @@
                             android:layout_weight="1"
                             android:adjustViewBounds="true"
                             android:background="?attr/selectableItemBackgroundBorderless"
-                            android:scaleType="fitCenter"
                             android:paddingRight="4dp"
+                            android:scaleType="fitCenter"
                             app:srcCompat="@drawable/ic_turn_visibility_off" />
 
                     </LinearLayout>
@@ -190,8 +190,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:gravity="center"
                         android:elevation="5dp"
+                        android:gravity="center"
                         android:orientation="horizontal"
                         android:paddingBottom="16dp">
 
@@ -201,7 +201,7 @@
                             android:layout_height="wrap_content"
                             android:clickable="true"
                             android:foreground="?android:attr/selectableItemBackground"
-                            app:cardBackgroundColor="@color/colorPrimaryDark"
+                            app:cardBackgroundColor="@color/colorPrimary"
                             app:cardCornerRadius="10dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -229,7 +229,7 @@
                                 android:paddingRight="25dp"
                                 android:paddingBottom="11dp"
                                 android:text="INICIAR SESIÓN"
-                                android:textColor="@color/Blanco"
+                                android:textColor="@color/colorPrimaryDark"
                                 android:textStyle="bold"
                                 tools:layout_editor_absoluteX="80dp"
                                 tools:layout_editor_absoluteY="390dp" />
@@ -288,64 +288,64 @@
                         </androidx.cardview.widget.CardView>
 
                         <!--<Button-->
-                            <!--android:id="@+id/btn_Version"-->
-                            <!--style="@style/Widget.AppCompat.Button.Borderless"-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:layout_gravity="bottom|right"-->
-                            <!--android:background="?attr/selectableItemBackgroundBorderless"-->
-                            <!--android:paddingBottom="16dp"-->
-                            <!--android:text="@string/version"-->
-                            <!--android:textAllCaps="false"-->
-                            <!--android:textColor="@android:color/white"-->
-                            <!--android:textSize="16sp"-->
-                            <!--android:textStyle="bold"-->
-                            <!--app:layout_constraintBottom_toBottomOf="parent"-->
-                            <!--app:layout_constraintEnd_toEndOf="parent"-->
-                            <!--app:layout_constraintVertical_bias="1.0" />-->
+                        <!--android:id="@+id/btn_Version"-->
+                        <!--style="@style/Widget.AppCompat.Button.Borderless"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="bottom|right"-->
+                        <!--android:background="?attr/selectableItemBackgroundBorderless"-->
+                        <!--android:paddingBottom="16dp"-->
+                        <!--android:text="@string/version"-->
+                        <!--android:textAllCaps="false"-->
+                        <!--android:textColor="@android:color/white"-->
+                        <!--android:textSize="16sp"-->
+                        <!--android:textStyle="bold"-->
+                        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                        <!--app:layout_constraintEnd_toEndOf="parent"-->
+                        <!--app:layout_constraintVertical_bias="1.0" />-->
                     </LinearLayout>
 
                     <!--<android.support.v7.widget.CardView-->
-                        <!--android:id="@+id/cv_Version"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_gravity="bottom"-->
-                        <!--android:clickable="true"-->
-                        <!--android:foreground="?android:attr/selectableItemBackground"-->
-                        <!--app:cardBackgroundColor="@color/colorAccent"-->
-                        <!--app:cardCornerRadius="10dp"-->
-                        <!--app:cardElevation="5dp"-->
-                        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-                        <!--app:layout_constraintEnd_toEndOf="parent"-->
-                        <!--app:layout_constraintHorizontal_bias="0.497"-->
-                        <!--app:layout_constraintStart_toStartOf="parent">-->
+                    <!--android:id="@+id/cv_Version"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="bottom"-->
+                    <!--android:clickable="true"-->
+                    <!--android:foreground="?android:attr/selectableItemBackground"-->
+                    <!--app:cardBackgroundColor="@color/colorAccent"-->
+                    <!--app:cardCornerRadius="10dp"-->
+                    <!--app:cardElevation="5dp"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--app:layout_constraintHorizontal_bias="0.497"-->
+                    <!--app:layout_constraintStart_toStartOf="parent">-->
 
-                        <!--<ProgressBar-->
-                            <!--android:id="@+id/pb_Version"-->
-                            <!--android:layout_width="30dp"-->
-                            <!--android:layout_height="30dp"-->
-                            <!--android:layout_gravity="center"-->
-                            <!--android:layout_margin="5dp"-->
-                            <!--android:indeterminateDrawable="@drawable/pb_iniciosesion"-->
-                            <!--android:visibility="invisible"-->
-                            <!--tools:layout_editor_absoluteX="119dp"-->
-                            <!--tools:layout_editor_absoluteY="358dp" />-->
+                    <!--<ProgressBar-->
+                    <!--android:id="@+id/pb_Version"-->
+                    <!--android:layout_width="30dp"-->
+                    <!--android:layout_height="30dp"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:layout_margin="5dp"-->
+                    <!--android:indeterminateDrawable="@drawable/pb_iniciosesion"-->
+                    <!--android:visibility="invisible"-->
+                    <!--tools:layout_editor_absoluteX="119dp"-->
+                    <!--tools:layout_editor_absoluteY="358dp" />-->
 
-                        <!--<TextView-->
-                            <!--android:id="@+id/tv_Version"-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:layout_gravity="center"-->
-                            <!--android:paddingLeft="25dp"-->
-                            <!--android:paddingTop="11dp"-->
-                            <!--android:paddingRight="25dp"-->
-                            <!--android:paddingBottom="11dp"-->
-                            <!--android:text="@string/version"-->
-                            <!--android:textAllCaps="false"-->
-                            <!--android:textColor="@android:color/white"-->
-                            <!--android:textStyle="bold"-->
-                            <!--tools:layout_editor_absoluteX="80dp"-->
-                            <!--tools:layout_editor_absoluteY="390dp" />-->
+                    <!--<TextView-->
+                    <!--android:id="@+id/tv_Version"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:paddingLeft="25dp"-->
+                    <!--android:paddingTop="11dp"-->
+                    <!--android:paddingRight="25dp"-->
+                    <!--android:paddingBottom="11dp"-->
+                    <!--android:text="@string/version"-->
+                    <!--android:textAllCaps="false"-->
+                    <!--android:textColor="@android:color/white"-->
+                    <!--android:textStyle="bold"-->
+                    <!--tools:layout_editor_absoluteX="80dp"-->
+                    <!--tools:layout_editor_absoluteY="390dp" />-->
                     <!--</android.support.v7.widget.CardView>-->
 
                 </LinearLayout>

@@ -547,7 +547,7 @@ public class Inicio_Sesion  extends AppCompatActivity {
         LayoutInflater inflador = getLayoutInflater();
         View layout = inflador.inflate(R.layout.layout_diseno_toast, (ViewGroup) findViewById(R.id.toast_layout));
         ImageView imagen = (ImageView) layout.findViewById(R.id.toast_image);
-        switch (nombreImagen) {
+       /* switch (nombreImagen) {
             case "error":
                 imagen.setImageResource(R.drawable.ic_error);
                 break;
@@ -571,7 +571,7 @@ public class Inicio_Sesion  extends AppCompatActivity {
                 break;
             default:
                 break;
-        }
+        }*/
 
         TextView texto = (TextView) layout.findViewById(R.id.toast_text);
         texto.setText(mensaje);

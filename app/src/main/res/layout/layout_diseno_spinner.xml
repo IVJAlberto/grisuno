@@ -5,11 +5,11 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     android:paddingBottom="5dp"
-    android:background="@drawable/fondospinner"
+    android:background="@drawable/ic_fondospinner"
     android:paddingTop="5dp"
     android:singleLine="true"
     android:textAlignment="center"
-    android:textColor="@color/Negro"
+    android:textColor="@android:color/white"
     android:textSize="18sp"
     android:textStyle="normal"
     android:textAppearance="@style/TextAppearance.AppCompat"/>

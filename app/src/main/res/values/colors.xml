@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#878787</color>
-    <color name="colorPrimaryDark">#505050</color>
-    <color name="colorAccent">#9ee6da</color>
+    <color name="colorPrimary">#CCC</color>
+    <color name="colorPrimaryDark">#3a3a3a</color>
+    <color name="colorAccent">#055F58</color>
     <color name = "colorFondoSpinner">#FFFFFF</color>
     <color name="colorBordeBotones">#667C79</color>
     <color name="Blanco">#E2E1E1</color>
     <color name="Negro">#000000</color>
+    <color name="Rojo">#860000</color>
     <color name="GrisClaro">#C8E0DA</color>
     <color name="Transparente">#00000000</color>
     <color name="Azul0Miedo">#303847</color>
@@ -14,5 +15,4 @@
 
     <color name="ic_notificacion_background_usuariorecorrido">#303A39</color>
     <color name="ic_notificacion_background_iniciosesion">#667C79</color>
-    <color name="ic_launcher_background">#FFFFFF</color>
 </resources>
